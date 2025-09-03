@@ -103,6 +103,16 @@ function setup() {
   btnlabel = "Start";
   calcResponsiveSizes();
   computeLayout();
+   window.addEventListener("resize", () => {
+    resizeCanvas(windowWidth, windowHeight);
+    calcResponsiveSizes();
+    computeLayout();
+    recalcLayout();
+    positionTextarea();
+    if (state === "survey" && currentQ === 0) {
+      input.position(width/2 - (windowWidth*0.7)/2, height*0.35);
+    }
+  });
 }
 
 function draw() {
@@ -469,7 +479,13 @@ function windowResized() {
   computeLayout();
   recalcLayout();
   positionTextarea();
+
+  // special case: Gmail input box on Q0
+  if (state === "survey" && currentQ === 0) {
+    input.position(width/2 - (windowWidth * 0.7) / 2, height * 0.35);
+  }
 }
+
 
 /* ---------- Input & textarea styling ---------- */
 
@@ -493,6 +509,7 @@ function styleTextarea() {
   textarea.style("resize", "none");
   textarea.style("outline", "none");
   textarea.style("box-shadow", "0px 2px 6px rgba(0,0,0,0.1)");
+  textarea.style("position", "absolute");
 }
 
 function styleInput() {
@@ -507,7 +524,7 @@ function styleInput() {
   input.style("outline-style", "solid");
   input.style("outline-width", "3px");
   input.style("font-family", "Quicksand, sans serif");
-  input.style("position", "fixed");
+  input.style("position", "absolute");
 }
 
 /* ---------- Interaction ---------- */
@@ -557,7 +574,33 @@ function handlePress(px, py) {
       return;
     }
   }
+  if (state === "final") {
+  if (isInsideButton(btnx, btny, btnw, btnh,px, py)) {
+    handleShare();
+  }
 }
+}
+
+function handleShare() {
+  const shareData = {
+    title: "Relationship Survey",
+    text: "I just shared my thoughts on love ❤️. Join and help us reach 1k responses!",
+    url: "https://rannks.github.io/Love-survey/" // <-- replace with your hosted site
+  };
+
+  if (navigator.share) {
+    // ✅ Use native share on mobile
+    navigator.share(shareData)
+      .then(() => console.log("Shared successfully"))
+      .catch(err => console.error("Share failed:", err));
+  } else {
+    // ❌ Fallback for desktop
+    navigator.clipboard.writeText(shareData.url).then(() => {
+      alert("Link copied! Share it with your friends ✨");
+    });
+  }
+}
+
 
 // Reset press on release
 function mouseReleased() {
