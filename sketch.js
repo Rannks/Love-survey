@@ -16,10 +16,10 @@ const questions = [
   { text: "How do you express love, and when do you feel most connected with another person?", type:"text", optional:false},
   { text: "Is ambition without results still consider ambition?", type: "choice", optionBox: { wRatio: 0.7, hRatio: 0.1, textScale: 0.6, spacingRatio: 0.07 }, options: [{label:"Yes"}, {label:"No"}] },
   { text: "Can your partner have friends of the opposite gender?", type: "choice", optionBox: { wRatio: 0.9, hRatio: 0.09, textScale: 0.4, spacingRatio: 0.03 }, options: [{label:"Yes- I would trust them"}, {label:"No- I don't trust other people(the friends)"},{label:"I'm in the middle,so I would surrended to uncertainity "},{label:"Yes,but with strict boundries"}] },
-  { text: "Which would hurt the most?", type: "choice", optionBox: { wRatio: 0.9, hRatio: 0.18, textScale: 0.5, spacingRatio: 0.07 }, options: [ {label:"A partner that cheats on you"},{label:"Being with a partner that is only in love with the idea of you"}] },
+  { text: "Which would hurt the most?", type: "choice", optionBox: { wRatio: 0.9, hRatio: 0.18, textScale: 0.5, spacingRatio: 0.07 }, options: [ {label:"A partner that cheats on you"},{label:" Being with a partner that doesn't love you for who you are"}] },
   { text: "What are the top three qualities you find most attractive in a partner?", type:"text", optional:false},
   { text: "What shapes your understanding of love the most?", type: "choice", optionBox: { wRatio: 0.7, hRatio: 0.08, textScale: 0.5, spacingRatio: 0.05 }, options: [ {label:"Movies and TV shows"},{label:"Books,literature and psychology"},{label:"Personal experiences"},{label:"Other people's experiences"}] },
-  { text: "You seem like a really interesting person and we would love to read your insights/thoughts/ advice on love", type: "text", optional: true}
+  { text: "You seem like a really interesting person and we would love to read your insights/thoughts/ advice on love and your take on the opposite gender", type: "text", optional: true}
 ];
 
 const answers = [];
