@@ -12,7 +12,7 @@ const questions = [
   { text: "What's your gender?", type: "choice", optionBox: { wRatio: 0.9, hRatio: 0.1, textScale: 0.6, spacingRatio: 0.07 }, options: [{label:"Female"},{label:"Male"},{ label:"Others"}] },
   { text: "How old are you?", type: "choice", optionBox: { wRatio: 0.9, hRatio: 0.1, textScale: 0.6, spacingRatio: 0.07 }, options: [{label:"18-25"},{label:"26-30"},{label: "30-35"}] },
   { text: "What version of love resonates with you the most?", type: "choice", optionBox: { wRatio: 0.9, hRatio: 0.1, textScale: 0.6, spacingRatio: 0.07 }, options: [{label:"Love is peace"}, {label:"Love is growth"},{label:"Love is sacrifice"}] },
-  { text: "Are relationships necessarily about building a world together or simply living in each others worlds?:", type: "choice", optionBox: { wRatio: 1, hRatio: 0.08, textScale: 0.35, spacingRatio: 0.02 }, options: [{label:"Living in each other's world"},{label: "Building a world together"},{label:"About 70% building a world together 30% living in each others world"},{label:"50% building a world together 50% living in each others world"},{label:"About 70%  living in each others world 30% building a world together 30%"}] },
+  { text: "Are relationships necessarily about building a world together or simply living in each others worlds?:", type: "choice", optionBox: { wRatio: 1, hRatio: 0.08, textScale: 0.35, spacingRatio: 0.02 }, options: [{label:"Living in each other's world"},{label: "Building a world together"},{label:"About 70% building a world together 30% living in each others world"},{label:"50% building a world together 50% living in each others world"},{label:"About 70%  living in each others world 30% building a world together "}] },
   { text: "How do you express love, and when do you feel most connected with another person?", type:"text", optional:false},
   { text: "Is ambition without results still consider ambition?", type: "choice", optionBox: { wRatio: 0.7, hRatio: 0.1, textScale: 0.6, spacingRatio: 0.07 }, options: [{label:"Yes"}, {label:"No"}] },
   { text: "Can your partner have friends of the opposite gender?", type: "choice", optionBox: { wRatio: 0.9, hRatio: 0.09, textScale: 0.4, spacingRatio: 0.03 }, options: [{label:"Yes- I would trust them"}, {label:"No- I don't trust other people(the friends)"},{label:"I'm in the middle,so I would surrended to uncertainity "},{label:"Yes,but with strict boundries"}] },
@@ -187,7 +187,7 @@ function aniclapp(){
   );
 
   frameClap = (frameClap + 1) % (totalColsClap * totalRowsClap);
-  frameRate(17);
+  frameRate(20);
 }
 
 function anicute(){
@@ -372,7 +372,7 @@ function drawQuestion(q) {
       input.show();
       input.position(width/2 - (windowWidth*0.7)/2, height*0.35);
       input.size(windowWidth * 0.7, 40);
-      input.attribute("placeholder", "Enter Gmail");
+      input.attribute("placeholder", "Enter Gmail or type 'skip' if you don't want to receive the survey results ");
       input.attribute("type", "email");
       textarea.hide();
     } else {
@@ -583,8 +583,8 @@ function handlePress(px, py) {
 
 function handleShare() {
   const shareData = {
-    title: "Relationship Survey",
-    text: "I just shared my thoughts on love ❤️. Join and help us reach 1k responses!",
+    title: "Blue will listen",
+    text: "I just shared my thoughts with Blue 💙. Join and help us reach 1k responses!",
     url: "https://rannks.github.io/Love-survey/" // <-- replace with your hosted site
   };
 
