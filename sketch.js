@@ -372,7 +372,7 @@ function drawQuestion(q) {
       input.show();
       input.position(width/2 - (windowWidth*0.7)/2, height*0.35);
       input.size(windowWidth * 0.7, 40);
-      input.attribute("placeholder", "Enter Gmail or type 'skip' if you don't want to receive the survey results ");
+      input.attribute("placeholder", "Enter Gmail or type 'skip'");
       input.attribute("type", "email");
       textarea.hide();
     } else {
